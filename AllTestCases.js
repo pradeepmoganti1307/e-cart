@@ -10,8 +10,13 @@ testSuite(
     expected: [{ name: "pradeep", id: 42880 }],
   },
   {
-    description: "search based on name",
-    params: ["name", "praneeth", people],
-    expected: [{ name: "praneeth", id: 42829 }],
+    description: "Invalid search returns undefined ",
+    params: ["age", 20, people],
+    expected: [undefined],
+  },
+  {
+    description: "search based on id",
+    params: ["id", 42880, people],
+    expected: [{ name: "pradeep", id: 42880 }],
   }
 );
