@@ -1,4 +1,4 @@
-import { products } from "./products.js";
+import { products } from "./data.js";
 import { sort, search, trim } from "./operations.js";
 
 const main = () => {
@@ -12,5 +12,4 @@ const main = () => {
       return sort(key, Number(value), products);
   }
 };
-
 console.table(main());
