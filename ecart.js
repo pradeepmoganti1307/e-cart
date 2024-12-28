@@ -1,9 +1,9 @@
 import { products } from "./products.js";
-import { sort, search } from "./operations.js";
+import { sort, search, trim } from "./operations.js";
 
 const main = () => {
   const query = prompt("e-cart:");
-  const [command, key, value] = query.split(" ");
+  const [command, key, value] = trim(query);
 
   switch (command) {
     case "search":
