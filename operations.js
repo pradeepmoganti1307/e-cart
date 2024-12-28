@@ -1,6 +1,6 @@
-export const search = (key, value, records) => {
-  return [records.find((data) => data[key] === value)];
-};
+export const search = (key, value, records) => [
+  records.find((data) => data[key] === value),
+];
 
 export const sort = (key, order, records) => {
   const asc = (object1, object2) => object1[key] - object2[key];
