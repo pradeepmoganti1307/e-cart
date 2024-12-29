@@ -1,5 +1,5 @@
 import { testSuite } from "./testFrameWork.js";
-import { search, sort, trim } from "./operations.js";
+import { search, sort, trim, absType } from "./operations.js";
 import { fruits, mango, orange, banana } from "./data.js";
 
 testSuite(
@@ -47,5 +47,38 @@ testSuite(
     description: "sort based on name(string) return same(dsc)",
     params: ["name", 1, fruits],
     expected: [...fruits],
+  }
+);
+
+testSuite(
+  trim,
+  {
+    description: "trim spaces at start, end, middle",
+    params: ["         hello         good                  morning          "],
+    expected: ["hello", "good", "morning"],
+  },
+  {
+    description: "No trim needed!",
+    params: ["hello good morning"],
+    expected: ["hello", "good", "morning"],
+  },
+  {
+    description: "trim middle spaces!",
+    params: ["hello  good  morning"],
+    expected: ["hello", "good", "morning"],
+  }
+);
+
+testSuite(
+  absType,
+  {
+    description: "string should be string only",
+    params: ["string"],
+    expected: "string",
+  },
+  {
+    description: "number In string form should be in number only",
+    params: ["10"],
+    expected: 10,
   }
 );
