@@ -15,6 +15,7 @@ const areEqual = (a, b) => {
 
 const display = (results, Fn) => {
   console.log("tests are on:", Fn);
+  //results.actual, results.expected
   results.map((result) => console.log(result.status, result.description));
   console.log();
 };

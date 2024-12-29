@@ -1,41 +1,51 @@
 import { testSuite } from "./testFrameWork.js";
 import { search, sort, trim } from "./operations.js";
-import { people, pradeep, surendra } from "./data.js";
+import { fruits, mango, orange, banana } from "./data.js";
 
 testSuite(
   search,
   {
     description: "search based on name",
-    params: ["name", "pradeep", people],
-    expected: [pradeep],
+    params: ["name", "mango", fruits],
+    expected: [mango],
   },
   {
     description: "Invalid search returns undefined ",
-    params: ["age", 20, people],
+    params: ["stock", 20, fruits],
     expected: [undefined],
   },
   {
-    description: "search based on id",
-    params: ["id", 42803, people],
-    expected: [surendra],
+    description: "search based on price",
+    params: ["price", 9, fruits],
+    expected: [banana],
   }
 );
 
 testSuite(
   sort,
   {
-    description: "search based on name",
-    params: ["name", "pradeep", people],
-    expected: [pradeep],
+    description: "sort based on price(number) without order arg",
+    params: ["price", "", fruits],
+    expected: [banana, mango, orange],
   },
   {
-    description: "Invalid search returns undefined ",
-    params: ["age", 20, people],
-    expected: [undefined],
+    description: "sort based on price(number) order arg 1(dsc)",
+    params: ["price", 1, fruits],
+    expected: [orange, mango, banana],
   },
   {
-    description: "search based on id",
-    params: ["id", 42803, people],
-    expected: [surendra],
+    description: "sort based on price(number) order arg 0(asc)",
+    params: ["price", 0, fruits],
+    expected: [banana, mango, orange],
+  },
+  {
+    description: "sort based on name(string) won't work(asc)",
+    params: ["name", 0, fruits],
+    expected: [...fruits],
+  },
+  {
+    description: "sort based on name(string) return same(dsc)",
+    params: ["name", 1, fruits],
+    expected: [...fruits],
   }
 );

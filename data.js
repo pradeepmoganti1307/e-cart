@@ -161,19 +161,19 @@ export const products = [
   },
 ];
 
-export const pradeep = {
-  name: "pradeep",
-  id: 42880,
+export const mango = {
+  name: "mango",
+  price: 14,
 };
 
-export const surendra = {
-  name: "surendra",
-  id: 42803,
+export const orange = {
+  name: "orange",
+  price: 16,
 };
 
-export const praneeth = {
-  name: "praneeth",
-  id: 42829,
+export const banana = {
+  name: "banana",
+  price: 9,
 };
 
-export const people = [{ ...pradeep }, { ...surendra }, { ...praneeth }];
+export const fruits = [{ ...mango }, { ...orange }, { ...banana }];
