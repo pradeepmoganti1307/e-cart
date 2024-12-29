@@ -2,9 +2,8 @@ const isEqual = (a, b) => a === b;
 const isArray = (a) => Array.isArray(a);
 const isObject = (a) => !isArray(a) && typeof a === "object";
 const areEqualSize = (a, b) => a.length === b.length;
-
-const areObjectsEqual = (a, b) =>
-  areEqual(Object.entries(a).sort(), Object.entries(b).sort());
+const sortEntriesOf = (a) => Object.entries(a).sort();
+const areObjectsEqual = (a, b) => areEqual(sortEntriesOf(a), sortEntriesOf(b));
 
 const areEqual = (a, b) => {
   if (isObject(a)) return areObjectsEqual(a, b);

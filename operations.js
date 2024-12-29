@@ -9,5 +9,8 @@ export const sort = (key, order, records) => {
   return records.toSorted(order === 1 ? dsc : asc);
 };
 
+export const absType = (value) =>
+  isNaN(Number(value)) ? value : Number(value);
+
 export const trim = (string) =>
   string.split(" ").filter((element) => element !== "");

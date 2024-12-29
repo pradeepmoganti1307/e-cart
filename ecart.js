@@ -1,10 +1,10 @@
 import { products } from "./data.js";
-import { sort, search, trim, setType } from "./operations.js";
+import { sort, search, trim, absType } from "./operations.js";
 
 const main = () => {
   const query = prompt("e-cart:");
   const [command, key, arg] = trim(query);
-  const value = setType(arg);
+  const value = absType(arg);
 
   switch (command) {
     case "search":
