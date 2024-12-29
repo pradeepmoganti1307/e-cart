@@ -1,29 +1,22 @@
 const isEqual = (a, b) => a === b;
-const isObject = (a) => !Array.isArray(a) && typeof a === "object";
+const isArray = (a) => Array.isArray(a);
+const isObject = (a) => !isArray(a) && typeof a === "object";
+const areEqualSize = (a, b) => a.length === b.length;
 
 const areObjectsEqual = (a, b) =>
   areEqual(Object.entries(a).sort(), Object.entries(b).sort());
 
 const areEqual = (a, b) => {
   if (isObject(a)) return areObjectsEqual(a, b);
-  if (!Array.isArray(a)) return isEqual(a, b);
-  if (a.length !== b.length) return false;
+  if (!isArray(a)) return isEqual(a, b);
+  if (!areEqualSize(a, b)) return false;
 
   return a.every((value, index) => areEqual(value, b[index]));
 };
 
-const display = function (object) {
-  console.log(object.status, object.description);
-};
-
-const sortResultsByStatus = (results) => {
-  const sorted = [];
-
-  results.map((result) =>
-    isEqual(result.status, "✅") ? sorted.push(result) : sorted.unshift(result)
-  );
-
-  sorted.map((result) => display(result));
+const display = (results, Fn) => {
+  console.log("tests are on:", Fn);
+  results.map((result) => console.log(result.status, result.description));
   console.log();
 };
 
@@ -36,6 +29,5 @@ export const testSuite = (Fn, ...testCases) => {
     return { status, description, params, expected, actual };
   });
 
-  console.log("tests are on:", Fn);
-  return sortResultsByStatus(results);
+  display(results, Fn);
 };
