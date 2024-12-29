@@ -2,6 +2,44 @@ import { testSuite } from "./testFrameWork.js";
 import { search, sort, trim, absType } from "./operations.js";
 import { fruits, mango, orange, banana } from "./data.js";
 
+const testsuite = (args) => args;
+testSuite(
+  testsuite,
+  {
+    description: "number check",
+    params: [10],
+    expected: 10,
+  },
+  {
+    description: "string check",
+    params: ["hello"],
+    expected: "hello",
+  },
+  {
+    description: "array check",
+    params: [["hello", 10]],
+    expected: ["hello", 10],
+  },
+  {
+    description: "object check",
+    params: [{ a: 1, b: 2 }],
+    expected: { a: 1, b: 2 },
+  },
+  {
+    description: "array of objects check",
+    params: [
+      [
+        { a: 1, b: 2 },
+        { a: 1, b: 2 },
+      ],
+    ],
+    expected: [
+      { a: 1, b: 2 },
+      { a: 1, b: 2 },
+    ],
+  }
+);
+
 testSuite(
   search,
   {
