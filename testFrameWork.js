@@ -1,29 +1,27 @@
 const isEqual = (a, b) => a === b;
 
+const areObjectsEqual = (a, b) => {
+  const _a = Object.entries(a).sort();
+  const _b = Object.entries(b).sort();
+  return areEqual(_a, _b);
+};
+
 const areEqual = (a, b) => {
+  if (!Array.isArray(a) && typeof a === "object") return areObjectsEqual(a, b);
   if (!Array.isArray(a)) return isEqual(a, b);
   if (a.length !== b.length) return false;
 
   return a.every((value, index) => areEqual(value, b[index]));
 };
 
-const displayResult = (result) => {
-  console.log("status:", result.status);
-  console.log("description:", result.description);
-  console.log("params:", result.params);
-  console.log("expected:", result.expected);
-  console.log("actual:", result.actual);
-  console.log("= ".repeat(result.description.length));
-  console.log();
-};
-
 const sortResultsByStatus = (results) => {
   const sorted = [];
+
   results.map((result) =>
     isEqual(result.status, "✅") ? sorted.push(result) : sorted.unshift(result)
   );
 
-  sorted.map((result) => displayResult(result));
+  console.table(sorted);
 };
 
 export const testSuite = (Fn, ...testCases) => {
