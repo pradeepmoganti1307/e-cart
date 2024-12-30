@@ -1,16 +1,18 @@
-import { products } from "./data.js";
+import { datas } from "./data.js";
 import { sort, search, trim, absType, list } from "./operations.js";
 
 const isValidKey = (key, products) => key in products[0];
 
-const runCommand = (command, key, value, products) => {
+const runCommand = (command, key, value, record) => {
   switch (command) {
+    case "cd":
+      return cd();
     case "search":
-      return search(key, value, products);
+      return search(key, value, record);
     case "sort":
-      return sort(key, value, products);
+      return sort(key, value, record);
     case "list":
-      return list(value, products);
+      return list(value, record);
   }
 };
 
