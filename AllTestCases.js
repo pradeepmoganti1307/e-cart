@@ -42,6 +42,11 @@ testSuite(
     description: "object of objects&arrays check",
     params: [{ 1: "hii", nesting: { 2: "hello" }, 3: "good", nesting2: [123] }],
     expected: { 1: "hii", nesting: { 2: "hello" }, 3: "good", nesting2: [123] },
+  },
+  {
+    description: "objects === arrays check",
+    params: [[[1, 2], { 0: 1, 1: 2 }]],
+    expected: [[1, 2], { 0: 1, 1: 2 }],
   }
 );
 

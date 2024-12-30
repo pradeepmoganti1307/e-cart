@@ -1,6 +1,8 @@
 import { products } from "./data.js";
 import { sort, search, trim, absType, list } from "./operations.js";
 
+const isValidKey = (key, products) => key in products[0];
+
 const runCommand = (command, key, value, products) => {
   switch (command) {
     case "search":
@@ -15,7 +17,7 @@ const runCommand = (command, key, value, products) => {
 const e_cart = () => {
   const query = prompt("e-cart:");
   const [command, key, value] = trim(query);
-  if (!Object.keys(products[0]).includes(key)) return "404: invalid key!";
+  if (!isValidKey(key, products)) return "404: invalid key!";
 
   return runCommand(command, key, absType(value), products);
 };
