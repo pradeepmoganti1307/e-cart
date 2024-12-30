@@ -16,5 +16,5 @@ export const trim = (string) =>
   string.split(" ").filter((element) => element !== "");
 
 export const list = (key, record) => {
-  return !!key ? record.map((record) => record[key]) : record;
+  return key === undefined ? record.map((record) => record[key]) : record;
 };

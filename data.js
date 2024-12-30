@@ -1,3 +1,4 @@
+//products
 export const products = [
   {
     productID: 1,
@@ -161,6 +162,81 @@ export const products = [
   },
 ];
 
+//users
+export const users = [
+  {
+    userID: "U001",
+    name: "alice johnson",
+    mail: "alice.johnson@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U002",
+    name: "bob smith",
+    mail: "bob.smith@example.com",
+    isActive: false,
+    cart: [],
+  },
+  {
+    userID: "U003",
+    name: "charlie brown",
+    mail: "charlie.brown@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U004",
+    name: "diana prince",
+    mail: "diana.prince@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U005",
+    name: "ethan hunt",
+    mail: "ethan.hunt@example.com",
+    isActive: false,
+    cart: [],
+  },
+  {
+    userID: "U006",
+    name: "fiona gallagher",
+    mail: "fiona.gallagher@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U007",
+    name: "george bailey",
+    mail: "george.bailey@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U008",
+    name: "hannah montana",
+    mail: "hannah.montana@example.com",
+    isActive: true,
+    cart: [],
+  },
+  {
+    userID: "U009",
+    name: "ian fleming",
+    mail: "ian.fleming@example.com",
+    isActive: false,
+    cart: [],
+  },
+  {
+    userID: "U010",
+    name: "jessica pearson",
+    mail: "jessica.pearson@example.com",
+    isActive: true,
+    cart: [],
+  },
+];
+
+//examples for testcases
 export const mango = {
   name: "mango",
   price: 14,

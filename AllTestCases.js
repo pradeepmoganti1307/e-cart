@@ -2,9 +2,9 @@ import { testSuite } from "./testFrameWork.js";
 import { search, sort, trim, absType } from "./operations.js";
 import { fruits, mango, orange, banana } from "./data.js";
 
-const testsuite = (args) => args;
+const echo = (args) => args;
 testSuite(
-  testsuite,
+  echo,
   {
     description: "number check",
     params: [10],
