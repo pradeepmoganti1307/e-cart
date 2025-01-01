@@ -24,3 +24,14 @@ will return
   rating: 4.3,
 }
 ```
+
+in table form.
+
+2.ls command
+when we are at
+
+```js
+ecart:
+```
+
+it will return `user, products` when it is in

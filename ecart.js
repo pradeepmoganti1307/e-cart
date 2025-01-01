@@ -1,33 +1,36 @@
-import { datas } from "./data.js";
-import { sort, search, trim, absType, list } from "./operations.js";
+import { data } from "./data.js";
+import { sort, search, trim, absType, list, cd } from "./operations.js";
 
-const isValidKey = (key, products) => key in products[0];
-
-const runCommand = (command, key, value, record) => {
+const runCommand = (command, key, value, path) => {
   switch (command) {
     case "cd":
-      return cd();
+      return cd(key, path);
     case "search":
-      return search(key, value, record);
+      return search(key, value, path.currentHandlingData);
     case "sort":
-      return sort(key, value, record);
+      return sort(key, value, path.currentHandlingData);
     case "list":
-      return list(value, record);
+      return list(value, path.currentHandlingData);
   }
 };
 
-const e_cart = () => {
-  const query = prompt("e-cart:");
+const e_cart = (path) => {
+  const query = prompt(path.promptString);
   const [command, key, value] = trim(query);
-  if (!isValidKey(key, products)) return "404: invalid key!";
 
-  return runCommand(command, key, absType(value), products);
+  return runCommand(command, key, absType(value), path);
 };
 
 const main = () => {
+  const path = {
+    promptString: "e-cart:",
+    currentHandlingData: data,
+    parentData: data,
+  };
+
   while (true) {
-    const result = e_cart();
-    !!result[0] ? console.table(result) : console.log("404: result not found!");
+    const result = e_cart(path);
+    console.table(result);
   }
 };
 

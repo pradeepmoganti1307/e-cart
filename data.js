@@ -236,7 +236,7 @@ export const users = [
   },
 ];
 
-export const datas = { users: users, products: products };
+export const data = { users: users, products: products };
 
 //examples for testcases
 export const mango = {
