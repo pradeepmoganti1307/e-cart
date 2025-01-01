@@ -30,7 +30,7 @@ const main = () => {
 
   while (true) {
     const result = e_cart(path);
-    console.table(result);
+    if (result !== undefined) console.table(result);
   }
 };
 

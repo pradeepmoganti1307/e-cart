@@ -1,5 +1,3 @@
-export const isValidKey = (key, products) => key in products[0];
-
 export const search = (key, value, records) => [
   records.find((data) => data[key] === value),
 ];
